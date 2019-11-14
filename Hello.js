@@ -1,28 +1,27 @@
 import React, { useState } from "react";
 
-const Hello = ({ setGenerate, value, setValue,setIsText }) => {
+const Hello = ({ generate, setGenerate }) => {
   const changeFun = e => {
-    setValue(e.target.value);
+    setGenerate({ ...generate, inputValue: e.target.value });
   };
   const generateFun = () => {
-    setGenerate(true);
+    setGenerate({ ...generate, isGenerate: true });
   };
   const clearFun = () => {
-    setValue(0);
-    setGenerate(false);
-    setIsText(false);
+    setGenerate({ ...generate, inputValue: 0, isGenerate: false });
   };
+  
   return (
     <div>
       <form>
         <input
-          value={value}
+          value={generate.inputValue}
           placeholder="Enter the value"
           onChange={changeFun}
         />
         <div>
           <input type="button" onClick={generateFun} value="Gen" />
-          <input type="reset" onClick={clearFun} value="Clear"/>
+          <input type="reset" onClick={clearFun} value="Clear" />
         </div>
       </form>
     </div>

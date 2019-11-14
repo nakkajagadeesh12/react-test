@@ -1,14 +1,26 @@
 import React, { useState } from "react";
 import Hello from "./Hello";
 import Generate from "./generate";
+import Text from "./Text";
 
 const Map = () => {
-  const [generate, setGenerate] = useState(false);
-  const [value, setValue] = useState(0);
+  const [generate, setGenerate] = useState({
+    isGenerate: false,
+    inputValue: 0,
+    color: '',
+    isText: false
+  });
   return (
     <div>
-      <Hello setGenerate={setGenerate} value={value} setValue={setValue} />
-      {generate && value > 0 && <Generate value={value} />}
+      <Hello generate={generate} setGenerate={setGenerate} />
+      {generate.isGenerate && generate.inputValue > 0 && (
+        <Generate
+          inputValue={generate.inputValue}
+          setGenerate={setGenerate}
+          generate={generate}
+        />
+      )}
+      {generate.isText && <Text color={generate.color} />}
     </div>
   );
 };
