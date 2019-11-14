@@ -1,0 +1,17 @@
+.main{
+display:flex;
+flex-direction: row;
+max-width: 60%;
+flex-wrap: wrap;
+}
+.child{
+border: 1px solid black;
+padding: 15px;
+margin: 10px;
+}
+
+.button{
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
