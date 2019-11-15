@@ -8,9 +8,14 @@ const Hello = ({ generate, setGenerate }) => {
     setGenerate({ ...generate, isGenerate: true });
   };
   const clearFun = () => {
-    setGenerate({ ...generate, inputValue: 0, isGenerate: false });
+    setGenerate({
+      ...generate,
+      inputValue: 0,
+      isGenerate: false,
+      isText: false
+    });
   };
-  
+
   return (
     <div>
       <form>
